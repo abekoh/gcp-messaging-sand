@@ -1,0 +1,12 @@
+server:
+  port: 9010
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: tweet
+          group: log
+      kafka:
+        binder:
+          brokers: localhost:32770

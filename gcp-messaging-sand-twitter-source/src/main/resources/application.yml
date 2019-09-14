@@ -1,0 +1,22 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: tweet
+          contentType: application/json
+      kafka:
+        binder:
+          brokers: localhost:32770
+twitter:
+  stream:
+    language: ja
+    stream-type: filter
+    track: ラブライブ
+#  credentials:
+#    access-token:
+#    access-token-secret:
+#    consumer-key:
+#    consumer-secret:
