@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: gcp-messaging-sand-twitter-source
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: gcp-messaging-sand-twitter-source
+  name: gcp-messaging-sand-twitter-source
+  namespace: messaging
+spec:
+  backend:
+    serviceName: gcp-messaging-sand-twitter-source
+    servicePort: 80

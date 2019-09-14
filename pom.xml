@@ -115,10 +115,26 @@
                     <groupId>com.google.cloud.tools</groupId>
                     <artifactId>jib-maven-plugin</artifactId>
                     <version>1.6.0</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                     <configuration>
+                        <from>
+                            <image>openjdk:8-jdk</image>
+                        </from>
                         <to>
                             <image>gcr.io/abekoh-sand/${project.name}</image>
                         </to>
+<!--                        <container>-->
+<!--                            <args>-->
+<!--                                <arg>&#45;&#45;spring.config.additional-location=${SPRING_CONFIG_ADDITIONAL_LOCATION}</arg>-->
+<!--                            </args>-->
+<!--                        </container>-->
                     </configuration>
                 </plugin>
             </plugins>

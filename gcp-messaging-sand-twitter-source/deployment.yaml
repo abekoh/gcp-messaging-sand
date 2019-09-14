@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gcp-messaging-sand-twitter-source
+  name: gcp-messaging-sand-twitter-source
+  namespace: messaging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gcp-messaging-sand-twitter-source
+  template:
+    metadata:
+      labels:
+        app: gcp-messaging-sand-twitter-source
+    spec:
+      containers:
+      - image: gcr.io/abekoh-sand/gcp-messaging-sand-twitter-source
+        name: gcp-messaging-sand-twitter-source
+        ports:
+        - containerPort: 9000
+        env:
+          - name: SPRING_CONFIG_ADDITIONAL_LOCATION
+            value: /etc/secret/
+          - name: SPRING_PROFILES_ACTIVE
+            value: secret
+          - name: SPRING_CLOUD_GCP_CONFIG_CREDENTIALS_LOCATION
+            value: "file:/etc/secret/spring-pubsub.json"
+        volumeMounts:
+          - name: secret-dir
+            mountPath: /etc/secret
+      volumes:
+        - name: secret-dir
+          secret:
+            secretName: gcp-messaging-sand-twitter-source
+            items:
+              - key: application-secret.yml
+                path: application-secret.yml
+              - key: spring-pubsub.json
+                path: spring-pubsub.json

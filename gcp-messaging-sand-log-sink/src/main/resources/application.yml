@@ -22,6 +22,6 @@ spring:
         enabled: true
         project-id: abekoh-sand
         credentials:
-          location: file:/Users/abekoh/.config/gcloud/application_default_credentials.json
+#          location: file:/Users/abekoh/.config/gcloud/application_default_credentials.json
           scopes:
             - https://www.googleapis.com/auth/pubsub

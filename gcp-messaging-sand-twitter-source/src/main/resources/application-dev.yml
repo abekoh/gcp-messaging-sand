@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    gcp:
+      config:
+        credentials:
+          location: file:/Users/abekoh/src/github.com/abekoh/gcp-messaging-sand/gcp-messaging-sand-twitter-source/secret/spring-pubsub.json
