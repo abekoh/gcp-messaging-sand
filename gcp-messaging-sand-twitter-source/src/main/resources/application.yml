@@ -3,20 +3,33 @@ server:
 spring:
   cloud:
     stream:
+      default-binder: pubsub
+      # 出力先の個別設定
       bindings:
         output:
           destination: tweet
           contentType: application/json
+      # デフォルトの出力先
+      gcp:
+        pubsub:
+          bindings:
+            output:
+              consumer:
+                auto-create-resources: true
+      # kafka設定
       kafka:
         binder:
           brokers: localhost:32770
+    gcp:
+      config:
+        enabled: true
+        project-id: abekoh-sand
+        credentials:
+          location: file:/Users/abekoh/.config/gcloud/application_default_credentials.json
+          scopes:
+            - https://www.googleapis.com/auth/pubsub
 twitter:
   stream:
     language: ja
     stream-type: filter
     track: ラブライブ
-#  credentials:
-#    access-token:
-#    access-token-secret:
-#    consumer-key:
-#    consumer-secret:

@@ -3,6 +3,7 @@ server:
 spring:
   cloud:
     stream:
+      default-binder: pubsub
       bindings:
         input:
           destination: tweet
@@ -10,3 +11,17 @@ spring:
       kafka:
         binder:
           brokers: localhost:32770
+      gcp:
+        pubsub:
+          bindings:
+            output:
+              consumer:
+                auto-create-resources: true
+    gcp:
+      config:
+        enabled: true
+        project-id: abekoh-sand
+        credentials:
+          location: file:/Users/abekoh/.config/gcloud/application_default_credentials.json
+          scopes:
+            - https://www.googleapis.com/auth/pubsub
