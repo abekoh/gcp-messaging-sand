@@ -25,7 +25,7 @@ spec:
             value: /etc/secret/
           - name: SPRING_PROFILES_ACTIVE
             value: secret
-          - name: SPRING_CLOUD_GCP_CONFIG_CREDENTIALS_LOCATION
+          - name: SPRING_CLOUD_GCP_PUBSUB_CREDENTIALS_LOCATION
             value: "file:/etc/secret/spring-pubsub.json"
         volumeMounts:
           - name: secret-dir

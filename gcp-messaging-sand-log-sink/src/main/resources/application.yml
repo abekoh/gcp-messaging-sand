@@ -18,10 +18,8 @@ spring:
               consumer:
                 auto-create-resources: true
     gcp:
-      config:
-        enabled: true
+      pubsub:
         project-id: abekoh-sand
         credentials:
-#          location: file:/Users/abekoh/.config/gcloud/application_default_credentials.json
           scopes:
             - https://www.googleapis.com/auth/pubsub

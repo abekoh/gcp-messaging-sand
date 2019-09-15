@@ -21,8 +21,7 @@ spring:
         binder:
           brokers: localhost:32770
     gcp:
-      config:
-        enabled: true
+      pubsub:
         project-id: abekoh-sand
         credentials:
           scopes:
