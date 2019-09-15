@@ -3,7 +3,7 @@ namespace: messaging
 replicaCount: 1
 
 image:
-  repository: gcr.io/abekoh-sand/gcp-messaging-sand-twitter-source
+  repository: gcr.io/abekoh-sand/gcp-messaging-sand-log-sink
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -12,11 +12,11 @@ spring:
 
 secret:
   volumeName: secret-dir
-  secretName: gcp-messaging-sand-twitter-source
+  secretName: gcp-messaging-sand-log-sink
   mountPath: /etc/secret
   fileNames:
     - application-secret.yml
     - spring-pubsub.json
 
 service:
-  externalIP: 34.68.226.31
+  externalIP: 35.222.129.217
