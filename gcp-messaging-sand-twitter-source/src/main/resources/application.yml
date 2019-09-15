@@ -29,5 +29,5 @@ spring:
 twitter:
   stream:
     language: ja
-    stream-type: filter
-    track: キュアゴリラ
+    stream-type: sample
+#    track: サトシ
