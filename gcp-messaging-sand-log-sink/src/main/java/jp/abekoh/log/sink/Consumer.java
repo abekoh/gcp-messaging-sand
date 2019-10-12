@@ -1,5 +1,6 @@
 package jp.abekoh.log.sink;
 
+import jp.abekoh.Tweet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,8 @@ public class Consumer {
     }
 
     @StreamListener(Sink.INPUT)
-    public void log(Map<String, Object> tweet) {
-        logger.info("consume message: " + tweet.toString());
-        postClient.dryPost((String) tweet.get("text"));
-        postClient.post((String) tweet.get("text"));
+    public void log(Tweet tweet) {
+        postClient.dryPost(tweet.toString());
+//        postClient.post((String) tweet.get("text"));
     }
 }

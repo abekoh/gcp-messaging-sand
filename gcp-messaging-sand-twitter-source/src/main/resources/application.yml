@@ -6,8 +6,8 @@ spring:
       default-binder: kafka
       # 出力先の個別設定
       bindings:
-        output:
-          destination: tweet
+        twitter:
+          destination: source-tweet
           contentType: application/json
       # デフォルトの出力先
       gcp:

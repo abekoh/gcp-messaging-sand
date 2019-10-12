@@ -3,10 +3,10 @@ server:
 spring:
   cloud:
     stream:
-      default-binder: pubsub
+      default-binder: kafka
       bindings:
         input:
-          destination: tweet
+          destination: source-tweet
           group: log
       kafka:
         binder:
