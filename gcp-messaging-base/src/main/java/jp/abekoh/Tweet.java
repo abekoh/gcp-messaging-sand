@@ -1,19 +1,19 @@
 package jp.abekoh;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-@Data
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Tweet {
+import java.net.URL;
+import java.time.ZonedDateTime;
 
-    private Long id;
+@Data
+public class Tweet {
+    private Long tweetId;
 
     private String text;
 
-    private String source;
+    private URL sourceUrl;
 
-    private String createdAt;
+    private ZonedDateTime postedTime;
 
-    private User user;
+    private SourceUser user;
 }

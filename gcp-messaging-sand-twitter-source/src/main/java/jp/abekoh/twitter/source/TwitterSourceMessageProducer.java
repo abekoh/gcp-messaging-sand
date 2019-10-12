@@ -1,7 +1,7 @@
 package jp.abekoh.twitter.source;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jp.abekoh.Tweet;
+import jp.abekoh.SourceTweet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.app.twitterstream.source.AbstractTwitterInboundChannelAdapter;
@@ -55,19 +55,20 @@ public class TwitterSourceMessageProducer extends AbstractTwitterInboundChannelA
         if (line.startsWith("{\"limit")) {
             this.logger.info("Twitter stream is being track limited.");
         } else if (!line.startsWith("{\"delete") && !line.startsWith("{\"warning")) {
-            Tweet tweet = convertStringToTweet(line);
-            this.logger.info("Send message: " + tweet);
-            this.sendMessage(MessageBuilder.withPayload(tweet).build());
+            this.logger.info(line);
+            SourceTweet sourceTweet = convertStringToTweet(line);
+//            this.logger.info("Send message: " + tweet);
+            this.sendMessage(MessageBuilder.withPayload(sourceTweet).build());
         }
     }
 
-    private Tweet convertStringToTweet(String line) {
+    private SourceTweet convertStringToTweet(String line) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return mapper.readValue(line, Tweet.class);
+            return mapper.readValue(line, SourceTweet.class);
         } catch (IOException e) {
             logger.error(e.getMessage());
-            return new Tweet();
+            return new SourceTweet();
         }
     }
 }

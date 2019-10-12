@@ -1,18 +1,18 @@
 package jp.abekoh;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-@Data
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
-    private Long id;
+import java.net.URL;
 
-    private String name;
+@Data
+public class User {
+    private Long tweetId;
+
+    private String userId;
 
     private String screenName;
 
-    private String url;
+    private URL websiteUrl;
 
     private String description;
 
