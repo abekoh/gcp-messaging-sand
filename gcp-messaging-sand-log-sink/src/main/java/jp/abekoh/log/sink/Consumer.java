@@ -26,6 +26,7 @@ public class Consumer {
     @StreamListener(Sink.INPUT)
     public void log(Map<String, Object> tweet) {
         logger.info("consume message: " + tweet.toString());
+        postClient.dryPost((String) tweet.get("text"));
         postClient.post((String) tweet.get("text"));
     }
 }

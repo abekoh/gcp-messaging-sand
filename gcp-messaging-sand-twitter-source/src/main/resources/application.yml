@@ -31,3 +31,8 @@ twitter:
     language: ja
     stream-type: sample
 #    track: サトシ
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

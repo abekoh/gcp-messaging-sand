@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class SlackClient implements PostClient {
+public class SlackClient extends AbstractPostClient implements PostClient {
 
     private static final Logger logger = LoggerFactory.getLogger(SlackClient.class);
 

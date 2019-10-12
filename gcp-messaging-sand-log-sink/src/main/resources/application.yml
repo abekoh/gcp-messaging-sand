@@ -25,3 +25,8 @@ spring:
             - https://www.googleapis.com/auth/pubsub
 slack:
   channel: "sandbox"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
