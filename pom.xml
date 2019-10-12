@@ -101,6 +101,11 @@
                 <artifactId>simple-slack-api</artifactId>
                 <version>1.2.0</version>
             </dependency>
+            <dependency>
+                <groupId>org.twitter4j</groupId>
+                <artifactId>twitter4j-core</artifactId>
+                <version>[4.0,)</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

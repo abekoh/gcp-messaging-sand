@@ -6,7 +6,6 @@ import org.springframework.cloud.stream.app.twitterstream.source.TwitterstreamSo
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import(TwitterstreamSourceConfiguration.class)
 public class TwitterSourceApplication {
     public static void main(String[] args) {
         SpringApplication.run(TwitterSourceApplication.class, args);
