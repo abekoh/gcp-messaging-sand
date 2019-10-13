@@ -55,9 +55,8 @@ public class TwitterSourceMessageProducer extends AbstractTwitterInboundChannelA
         if (line.startsWith("{\"limit")) {
             this.logger.info("Twitter stream is being track limited.");
         } else if (!line.startsWith("{\"delete") && !line.startsWith("{\"warning")) {
-            this.logger.info(line);
             SourceTweet sourceTweet = convertStringToTweet(line);
-//            this.logger.info("Send message: " + tweet);
+            this.logger.info("Send message: " + sourceTweet);
             this.sendMessage(MessageBuilder.withPayload(sourceTweet).build());
         }
     }
